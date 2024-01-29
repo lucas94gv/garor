@@ -2,24 +2,27 @@
 
 source 'https://rubygems.org'
 
-# ruby and rails
+# Ruby and rails
 ruby '3.3.0'
-gem 'rails', '~> 7.1.2'
+gem 'rails', '~> 7.1.3'
 
-# postgres
+# Database
 gem 'pg', '~> 1.1'
 
-# server
+# Server
 gem 'bootsnap', require: false
 gem 'puma', '>= 5.0'
 
-# data / time
+# Data / time
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# environment variables
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem 'jbuilder'
+
+# Environment variables
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
-# syntax
+# Syntax
 gem 'rubocop', '~> 1.60', '>= 1.60.1'
 
 group :development, :test do
