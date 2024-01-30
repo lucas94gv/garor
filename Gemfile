@@ -26,7 +26,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rubocop', '~> 1.60', '>= 1.60.1'
 
 group :development, :test do
-  gem 'debug', platforms: %i[mri windows]
+  # debug
+  gem 'debug', require: false, platforms: %i[mri windows]
   # testing
   gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
   gem 'faker', '~> 3.2', '>= 3.2.3'

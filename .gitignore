@@ -37,3 +37,4 @@
 
 # Ignore vscode settings
 /.vscode/
+/bin/rdbg
