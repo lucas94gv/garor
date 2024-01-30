@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :company do
-    cif { Faker::Code.unique.isbn }
+    cif { Faker::Company.spanish_organisation_number }
   end
 end

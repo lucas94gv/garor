@@ -38,12 +38,12 @@ RSpec.describe(Company, type: :model) do
       expect(@company).to_not(be_valid)
     end
 
-    it 'is not valid with a cif shorter than 11 characters' do
+    it 'is not valid with a cif shorter than 9 characters' do
       @company.cif = '1234567'
       expect(@company).to_not be_valid
     end
 
-    it 'is not valid with a cif longer than 11 characters' do
+    it 'is not valid with a cif longer than 9 characters' do
       @company.cif = '123456789012345'
       expect(@company).to_not be_valid
     end
