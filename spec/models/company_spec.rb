@@ -20,7 +20,15 @@ RSpec.describe(Company, type: :model) do
       @company.cif = nil
       expect(@company).not_to(be_valid)
     end
+  end
+end
 
+RSpec.describe(Company, type: :model) do
+  before(:each) do
+    @company = FactoryBot.create(:company)
+  end
+
+  describe 'data validity' do
     it 'valid value' do
       @company.cif = ''
       expect(@company).not_to(be_valid)
@@ -29,9 +37,7 @@ RSpec.describe(Company, type: :model) do
     it 'is valid with valid attributes' do
       expect(@company).to(be_valid)
     end
-  end
 
-  describe 'data validity' do
     it 'is not valid with a duplicate cif' do
       new_company = FactoryBot.create(:company)
       @company.cif = new_company.cif
