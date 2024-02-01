@@ -34,5 +34,13 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   config.responder.error_status = :unprocessable_entity
+
   config.responder.redirect_status = :see_other
+
+  config.jwt do |jwt|
+    jwt.secret = ENV['devise_jwt_secret_key']
+    jwt.dispatch_requests = [
+      ['POST', %r{^/users/sign_in}]
+    ]
+  end
 end
