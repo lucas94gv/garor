@@ -25,6 +25,10 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Syntax
 gem 'rubocop', '~> 1.60', '>= 1.60.1'
 
+# auth
+gem 'devise', '~> 4.9', '>= 4.9.3'
+gem 'devise-jwt', '~> 0.11.0'
+
 group :development, :test do
   # debug
   gem 'debug', require: false, platforms: %i[mri windows]
