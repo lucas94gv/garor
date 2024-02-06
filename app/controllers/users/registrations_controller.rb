@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 module Users
-  # Controller for user registrations, extending Devise's RegistrationsController.
-  # This controller allows customization of the sign-up process, including additional
-  # parameters like :company_id and :role. Customization is done through the
-  # configure_sign_up_params method, where additional parameters are permitted.
-  # Devise provides a solid foundation, and this controller is tailored to accommodate
-  # specific requirements of the application.
+  # RegistrationsController manages user registration and account creation using Devise.
+  # It inherits from Devise's registrations controller and provides actions for
+  # signing up new users, editing account details, and deleting accounts.
+  # Customizations to the registration process can be added here, such as additional
+  # validation or steps in the sign-up flow.
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_sign_up_params, only: [:create]
 

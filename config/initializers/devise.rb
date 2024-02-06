@@ -37,10 +37,16 @@ Devise.setup do |config|
 
   config.responder.redirect_status = :see_other
 
+  config.navigational_formats = []
+
   config.jwt do |jwt|
     jwt.secret = ENV['devise_jwt_secret_key']
     jwt.dispatch_requests = [
-      ['POST', %r{^/users/sign_in}]
+      ['POST', %r{^/login$}]
     ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 30.minutes.to_i
   end
 end
