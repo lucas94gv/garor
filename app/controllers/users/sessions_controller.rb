@@ -14,10 +14,7 @@ module Users
 
     def respond_with(current_user, _opts = {})
       render json: {
-        status: {
-          code: 200, message: 'Logged in successfully.',
-          data: { user: current_user.id }
-        }
+        token: request.env['warden-jwt_auth.token']
       }, status: :ok
     end
 
@@ -32,6 +29,10 @@ module Users
       else
         render json: { status: 401, message: "Couldn't find an active session." }, status: :unauthorized
       end
+    end
+
+    def encode_token(payload)
+      JWT.encode(payload, ENV['devise_jwt_secret_key'])
     end
   end
 end
