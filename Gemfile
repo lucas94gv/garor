@@ -25,9 +25,12 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Syntax
 gem 'rubocop', '~> 1.60', '>= 1.60.1'
 
-# auth
+# Auth
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'devise-jwt', '~> 0.11.0'
+
+# Api
+gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 
 group :development, :test do
   # debug
