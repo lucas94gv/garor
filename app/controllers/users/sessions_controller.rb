@@ -12,7 +12,7 @@ module Users
 
     private
 
-    def respond_with(current_user, _opts = {})
+    def respond_with(_current_user, _opts = {})
       render json: {
         token: request.env['warden-jwt_auth.token']
       }, status: :ok
