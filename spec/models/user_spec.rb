@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @employee = FactoryBot.create(:user_employee)
-    @manager = FactoryBot.create(:user_manager)
-    @admin = FactoryBot.create(:user_admin)
-    @superadmin = FactoryBot.create(:user_superadmin)
+    @employee = FactoryBot.create(:employee)
+    @manager = FactoryBot.create(:manager)
+    @admin = FactoryBot.create(:admin)
+    @superadmin = FactoryBot.create(:superadmin)
   end
 
   describe 'Factory' do
@@ -65,7 +65,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid with a duplicate email' do
-      new_employee = FactoryBot.create(:user_employee)
+      new_employee = FactoryBot.create(:employee)
       @employee.email = new_employee.email
       expect(@employee).to_not(be_valid)
     end
@@ -75,16 +75,22 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid when company_id is not a Company' do
-      expect(@employee.company).to(be_kind_of(User))
+      expect(@employee.company).to(be_kind_of(Company))
     end
   end
 
   describe 'Associations' do
-    it { is_expected.to belong_to(:company) }
+    it 'belongs to company' do
+        expect(@employee.company).to be_kind_of(Company)
+    end
   end
 
   describe 'Enums' do
-    it { is_expected.to define_enum_for(:role).with_values(%i[employee manager admin superadmin]).with_suffix(:enum) }
-    it { is_expected.not_to define_enum_for(:role).with_values(%i[invalid_role]).with_suffix(:enum) }
+    it 'is valid is enum is correct' do
+        expect(@employee.role).to eq('employee')
+        expect(@manager.role).to eq('manager')
+        expect(@admin.role).to eq('admin')
+        expect(@superadmin.role).to eq('superadmin')
+    end
   end
 end

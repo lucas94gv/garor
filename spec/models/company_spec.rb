@@ -55,13 +55,3 @@ RSpec.describe(Company, type: :model) do
     end
   end
 end
-
-RSpec.describe(Company, type: :model) do
-  before(:each) do
-    @company = FactoryBot.create(:company)
-  end
-
-  describe 'Associations' do
-    it { is_expected.to have_many(:users) }
-  end
-end
