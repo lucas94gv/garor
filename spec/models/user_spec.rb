@@ -80,8 +80,12 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it 'belongs to company' do
+    it 'is valid if belongs to company' do
         expect(@employee.company).to be_kind_of(Company)
+    end
+
+    it 'is not valid if not belongs to company' do
+      expect(@employee.company).to_not be_kind_of(User)
     end
   end
 
