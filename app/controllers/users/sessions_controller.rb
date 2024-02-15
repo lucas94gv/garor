@@ -25,9 +25,9 @@ module Users
       end
 
       if current_user
-        render json: { status: 200, message: 'Logged out successfully.' }, status: :ok
+        render json: { message: 'Logged out successfully.' }, status: :ok
       else
-        render json: { status: 401, message: "Couldn't find an active session." }, status: :unauthorized
+        render json: { message: "Couldn't find an active session." }, status: :unauthorized
       end
     end
 
