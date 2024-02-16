@@ -4,3 +4,4 @@ AllCops:
     - 'db/migrate/20240201125603_devise_create_users.rb'
     - 'spec/models/user_spec.rb'
     - 'db/schema.rb'
+    - 'spec/requests/api/v1/users_spec.rb'

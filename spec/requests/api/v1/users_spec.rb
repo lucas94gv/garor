@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/Metrics/BlockLength
-
 require 'swagger_helper'
 require 'devise/jwt/test_helpers'
 require 'rails_helper'

@@ -54,7 +54,9 @@ RSpec.describe(Company, type: :model) do
       expect(@company).to_not be_valid
     end
   end
+end
 
+RSpec.describe(Company, type: :model) do
   describe 'Associations' do
     it 'should have many users' do
       company = described_class.reflect_on_association(:users)
