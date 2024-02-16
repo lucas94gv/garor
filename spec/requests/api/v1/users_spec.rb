@@ -22,7 +22,7 @@ RSpec.describe('Users API', type: :request) do
                   required: %w[email password company_id role]
                 }
 
-      FactoryBot.create(:company)
+      FactoryBot.create(:company) unless Company.first
 
       response '201', 'OK' do
         let(:user) do
