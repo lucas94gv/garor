@@ -5,3 +5,4 @@ AllCops:
     - 'spec/models/user_spec.rb'
     - 'db/schema.rb'
     - 'spec/requests/api/v1/users_spec.rb'
+    - 'spec/middleware/token_authenticator_spec.rb'
