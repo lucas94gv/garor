@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  validates_presence_of :company_id, :encrypted_password
+  acts_as_tenant(:company)
 
-  belongs_to :company
+  validates_presence_of :company_id, :encrypted_password
 end
