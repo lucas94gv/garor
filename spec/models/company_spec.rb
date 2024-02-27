@@ -55,3 +55,12 @@ RSpec.describe(Company, type: :model) do
     end
   end
 end
+
+RSpec.describe(Company, type: :model) do
+  describe 'Associations' do
+    it 'should have many users' do
+      company = described_class.reflect_on_association(:users)
+      expect(company.macro).to eq(:has_many)
+    end
+  end
+end

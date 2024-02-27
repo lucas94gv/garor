@@ -38,3 +38,6 @@
 # Ignore vscode settings
 /.vscode/
 /bin/rdbg
+
+# Ignore rubocop files
+.rubocop.yml

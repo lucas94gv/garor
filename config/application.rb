@@ -4,6 +4,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require_relative '../app/middleware/token_authenticator'
+
 Bundler.require(*Rails.groups)
 
 module Garor
@@ -18,5 +20,7 @@ module Garor
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+
+    config.middleware.use TokenAuthenticator
   end
 end
