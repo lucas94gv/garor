@@ -9,6 +9,10 @@ module Api
       def index
         @companies = Company.all
       end
+
+      def test
+        
+      end
     end
   end
 end
