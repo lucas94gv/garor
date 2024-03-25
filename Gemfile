@@ -16,7 +16,7 @@ gem 'puma', '>= 5.0'
 # Data / time
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# Build JSON APIs
 gem 'jbuilder'
 
 # Environment variables
@@ -32,12 +32,16 @@ gem 'devise-jwt', '~> 0.11.0'
 # Api
 gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 
+# Testing
 gem 'rswag', '~> 2.13'
 
+# Multi-Tenancy
+gem 'acts_as_tenant', '~> 1.0', '>= 1.0.1'
+
 group :development, :test do
-  # debug
+  # Debug
   gem 'debug', require: false, platforms: %i[mri windows]
-  # testing
+  # Testing
   gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
   gem 'faker', '~> 3.2', '>= 3.2.3'
   gem 'rspec-rails', '~> 6.1'
@@ -47,6 +51,6 @@ group :development do
 end
 
 group :test do
-  # testing
+  # Testing
   gem 'capybara', '~> 3.39', '>= 3.39.2'
 end

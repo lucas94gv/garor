@@ -12,12 +12,22 @@ class ApplicationController < ActionController::API
 
   respond_to :json
 
+  set_current_tenant_through_filter
+
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_tenant
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[email avatar])
+  end
+
+  # Set the current tenant based on company of user.
+  # The tenant is set using the before_action callback.
+  def set_tenant
+    company = current_user&.company
+    set_current_tenant(company)
   end
 end
