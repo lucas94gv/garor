@@ -1,0 +1,21 @@
+name: "CI"
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+jobs:
+  test:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          ruby-version: 3.3.0
+      - name: Install dependencies
+        run: |
+          gem install bundler
+      - name: Run Rubocop
+        run: bundle exec rubocop
