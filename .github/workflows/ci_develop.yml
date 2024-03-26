@@ -60,9 +60,10 @@ jobs:
           POSTGRES_DB: garor_test
           REDIS_URL: redis://localhost:6379/1
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          # cp config/database.yml.ci.github-actions config/database.yml
         run: |
           sudo apt-get -yqq install libpq-dev
-          cp config/database.yml.ci.github-actions config/database.yml
+          
           gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec rails db:create
