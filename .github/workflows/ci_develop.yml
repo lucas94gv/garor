@@ -11,11 +11,11 @@ on:
 jobs:
   rubocop-test:
     name: Rubocop
-    runs-on: ubuntu-22.04.4
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
       - name: Install dependencies
@@ -27,13 +27,13 @@ jobs:
   database-test:
     name: Rspec
     needs: rubocop-test
-    runs-on: ubuntu-22.04.4
+    runs-on: ubuntu-latest
     services:
       db:
         image: postgres:13.4
         ports: ["5432:5432"]
         env:
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: ENV["database_password"]
         options: >-
           --health-cmd pg_isready 
           --health-interval 10s 
@@ -46,9 +46,9 @@ jobs:
         options: >-
           --entrypoint redis-server
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
       - name: Build and test with Rake
