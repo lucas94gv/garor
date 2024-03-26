@@ -63,7 +63,6 @@ jobs:
           # cp config/database.yml.ci.github-actions config/database.yml
         run: |
           sudo apt-get -yqq install libpq-dev
-          
           gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec rails db:create
